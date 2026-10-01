@@ -1,0 +1,13 @@
+{
+  "name": "Remix wiplanner",
+  "description": "Platform strategi dan content plan crossposting harian STIE Wibawa Karta Raharja (30 Sept - 5 Okt 2026) untuk maksimalkan jangkauan dan views.",
+  "requestFramePermissions": [
+    "notifications",
+    "notification",
+    "popups",
+    "desktop-notifications"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

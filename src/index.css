@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Custom Ultra-Minimalist Modern Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.35); /* Subtle slate-400 */
+  border-radius: 9999px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(37, 99, 235, 0.55); /* Subtle active blue */
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(71, 85, 105, 0.45); /* Subtle dark slate-600 */
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(96, 165, 250, 0.55); /* Subtle dark active blue */
+}
+
+/* Firefox Scrollbar support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
+}
+
+.dark * {
+  scrollbar-color: rgba(71, 85, 105, 0.45) transparent;
+}
+
+@layer utilities {
+  /* Subtle glassmorphism */
+  .glass-card-light {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  
+  .glass-card-dark {
+    background: rgba(10, 15, 29, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  /* Shimmer sweep effect on hover */
+  .hover-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .hover-shimmer::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      60deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.18) 50%,
+      transparent 70%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.75s ease-in-out;
+    pointer-events: none;
+  }
+  .dark .hover-shimmer::after {
+    background: linear-gradient(
+      60deg,
+      transparent 30%,
+      rgba(96, 165, 250, 0.15) 50%,
+      transparent 70%
+    );
+  }
+  .hover-shimmer:hover::after {
+    transform: translateX(100%);
+  }
+
+  /* Continuous subtle shimmer for highlight elements */
+  @keyframes shimmer-sweep {
+    0% {
+      transform: translateX(-150%);
+    }
+    100% {
+      transform: translateX(150%);
+    }
+  }
+
+  .animate-shimmer-continuous {
+    position: relative;
+    overflow: hidden;
+  }
+  .animate-shimmer-continuous::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.25) 50%,
+      transparent 100%
+    );
+    animation: shimmer-sweep 2.8s infinite ease-in-out;
+    pointer-events: none;
+  }
+  .dark .animate-shimmer-continuous::after {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(59, 130, 246, 0.2) 50%,
+      transparent 100%
+    );
+  }
+}
+
+@layer base {
+  body {
+    @apply transition-colors duration-300;
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "/",
+  "name": "Wikara Content Plan",
+  "short_name": "Wikara Plan",
+  "description": "Platform strategi dan rencana konten sosial media harian STIE Wibawa Karta Raharja. Akses jadwal, hook, caption, hashtag, dan arahan visual secara lengkap.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f172a",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/gambar/wikara_logo.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "/gambar/wikara_logo.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "/gambar/wikara_logo.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "maskable"
+    }
+  ]
+}
